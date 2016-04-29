@@ -4,9 +4,9 @@ public class GameBoard
 	private PlayerBoard firstPlayerBoard;
 	private PlayerBoard secondPlayerBoard;
 	
-	public GameBoard(PlayerBoard fpb , PlayerBoard spb){
-		this.firstPlayerBoard=fpb;
-		this.secondPlayerBoard=spb;
+	public GameBoard(PlayerBoard fplayerboard , PlayerBoard splayervoard){
+		this.firstPlayerBoard=fplayerboard;
+		this.secondPlayerBoard=splayervoard;
 	}
 
 	public PlayerBoard getFirstPlayerBoard()
