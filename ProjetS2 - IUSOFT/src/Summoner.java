@@ -3,7 +3,8 @@
  * @author pintrant
  *
  */
-public class Summoner {
+//TODO complete the comments of this class
+public class Summoner extends Card {
 	/**
 	 * this attribute represents the life points of the player 
 	 */
