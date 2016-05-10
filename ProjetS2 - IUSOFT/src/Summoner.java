@@ -65,39 +65,57 @@ public class Summoner extends Card {
 	}
 	
 	
-	
+	/**
+	 * returns the player's life points
+	 */
 	public int getHealth() {
 		return health;
 	}
-
+	/**
+	 * set the player's life points
+	 */
 	public void setHealth(int health) {
 		this.health = health;
 	}
-
+	/**
+	 * returns the player's soul points
+	 */
 	public int getSouls() {
 		return souls;
 	}
-
+	/**
+	 * set the player's soul points
+	 */
 	public void setSouls(int souls) {
 		this.souls = souls;
 	}
-
+	/**
+	 * returns the player's resistance points
+	 */
 	public int getResistance() {
 		return resistance;
 	}
-
+	/**
+	 * set the player's resistance points
+	 */
 	public void setResistance(int resistance) {
 		this.resistance = resistance;
 	}
-
+	/**
+	 * returns the player's intelligence points
+	 */
 	public int getIntelligence() {
 		return intelligence;
 	}
-
+	/**
+	 * set the player's intelligence points
+	 */
 	public void setIntelligence(int intelligence) {
 		this.intelligence = intelligence;
 	}
-
+	/**
+	 * return the player's 
+	 */
 	public Deck getPlayerDeck() {
 		return playerDeck;
 	}
@@ -105,7 +123,6 @@ public class Summoner extends Card {
 	public void setPlayerDeck(Deck playerDeck) {
 		this.playerDeck = playerDeck;
 	}
-	
 	
 	
 }
