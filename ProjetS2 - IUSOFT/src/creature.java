@@ -1,5 +1,5 @@
 
-public class creature extends CardToPlay{
+public class creature extends CardToPlay implements Magic, Martial, Demonic{
 	/**
 	 * the health of the creature
 	 */
