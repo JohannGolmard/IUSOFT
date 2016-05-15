@@ -1,4 +1,4 @@
-public interface Magic extends creature {
+public class Magic extends creature {
 	
 	
 	

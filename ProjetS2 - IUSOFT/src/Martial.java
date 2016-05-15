@@ -1,4 +1,4 @@
-public interface Martial extends creature {
+public class Martial extends creature {
 	
 	
 	

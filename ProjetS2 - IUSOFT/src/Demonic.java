@@ -1,4 +1,4 @@
-public interface demonic extends creature {
+public class Demonic extends creature {
 	
 	
 	
