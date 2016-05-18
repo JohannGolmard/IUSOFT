@@ -20,9 +20,15 @@ public class BunkaGamu
 
 	/**
 	 * The player who start receive one card from is deck 
-	 * 
-	 * 
-	 * 
+	 * Then the player choose is action :
+	 *  -case skill of summoner
+	 *  -case summon creature while the summoner has the specified condition to invoke it 
+	 *  -case Use a spell from his hand
+	 * 	-case Equip one of his creature on his board with a equipment from his hand
+	 * 	-case Attack , the player use one of his creature to Attack the enemy
+	 *  -case Play a card , the summoner put a trap card on his board, which can't be activate on the same turn of the summoner who play it.
+	 *  
+	 *  the winner is the first summoner to down the summoner enemy at 0 life point
 	 */
 	public void play(){
 		
