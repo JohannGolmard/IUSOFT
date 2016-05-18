@@ -22,10 +22,44 @@ public abstract class CardToPlay extends Card {
 	 */
 	private int neededIntelligence;
 	/**
-	 * if the cardv is a creature: give the choice between attack mode and defense mode
+	 * if the card is a creature: give the choice between attack mode and defense mode and activate his effect
 	 * if the card is a spell activate the effect
 	 */
+	
 	public void playACard(){
 		//TODO write code
 	}
+	public CardToPlay(int soulCost, int neededSanity, int neededResistance,
+			int neededIntelligence) {
+		super();
+		this.setSoulCost(soulCost);
+		this.setNeededSanity(neededSanity);
+		this.setNeededResistance(neededResistance);
+		this.setNeededIntelligence(neededIntelligence);
+	}
+	public int getSoulCost() {
+		return soulCost;
+	}
+	public void setSoulCost(int soulCost) {
+		this.soulCost = soulCost;
+	}
+	public int getNeededSanity() {
+		return neededSanity;
+	}
+	public void setNeededSanity(int neededSanity) {
+		this.neededSanity = neededSanity;
+	}
+	public int getNeededResistance() {
+		return neededResistance;
+	}
+	public void setNeededResistance(int neededResistance) {
+		this.neededResistance = neededResistance;
+	}
+	public int getNeededIntelligence() {
+		return neededIntelligence;
+	}
+	public void setNeededIntelligence(int neededIntelligence) {
+		this.neededIntelligence = neededIntelligence;
+	}
+
 }
