@@ -21,11 +21,11 @@ public abstract class PlayCard extends Card {
 	 * Represents the intelligence of the card that the player need to have.
 	 */
 	private int neededIntelligence;
+	
 	/**
 	 * if the card is a creature: give the choice between attack mode and defense mode and activate his effect
 	 * if the card is a spell activate the effect
 	 */
-	
 	public void playACard(){
 		//TODO write code
 	}

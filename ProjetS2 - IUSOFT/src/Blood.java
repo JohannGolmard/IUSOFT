@@ -1,10 +1,11 @@
-public class Support extends Martial{
+public class Blood extends Demonic{
 
-	public Support(int soulCost, int neededSanity, int neededResistance,
+	public Blood(int soulCost, int neededSanity, int neededResistance,
 			int neededIntelligence, int health, int attack, int defense) {
 		super(soulCost, neededSanity, neededResistance, neededIntelligence, health,
 				attack, defense);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	
 }
