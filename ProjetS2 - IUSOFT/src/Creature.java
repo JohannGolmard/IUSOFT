@@ -1,5 +1,22 @@
 
-public class creature extends CardToPlay{
+public abstract class Creature extends PlayCard{
+	/**
+	 * create a creature card
+	 * @param soulCost
+	 * @param neededSanity
+	 * @param neededResistance
+	 * @param neededIntelligence
+	 * @param health
+	 * @param attack
+	 * @param defense
+	 */
+	public Creature(int soulCost, int neededSanity, int neededResistance,
+			int neededIntelligence, int health, int attack, int defense) {
+		super(soulCost, neededSanity, neededResistance, neededIntelligence);
+		this.health= health;
+		this.attack= attack;
+		this.defense=defense;
+	}
 	/**
 	 * the health of the creature
 	 */

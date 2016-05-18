@@ -4,7 +4,7 @@
  *
  */
 //TODO complete the comment
-public abstract class CardToPlay extends Card {
+public abstract class PlayCard extends Card {
 	/**
 	 * Represents the cost in soul point of the card
 	 */
@@ -29,7 +29,14 @@ public abstract class CardToPlay extends Card {
 	public void playACard(){
 		//TODO write code
 	}
-	public CardToPlay(int soulCost, int neededSanity, int neededResistance,
+	/**
+	 * generate a card to play
+	 * @param soulCost
+	 * @param neededSanity
+	 * @param neededResistance
+	 * @param neededIntelligence
+	 */
+	public PlayCard(int soulCost, int neededSanity, int neededResistance,
 			int neededIntelligence) {
 		super();
 		this.setSoulCost(soulCost);
