@@ -22,7 +22,7 @@ public abstract class Creature extends PlayCard{
 	 */
 	private int health;
 	/**
-	 * the defrense of the creature
+	 * the defense of the creature
 	 */
 	private int defense;
 	/**
@@ -30,15 +30,9 @@ public abstract class Creature extends PlayCard{
 	 */
 	private int attack;
 	
-	public void domainEffect(){
-		//TODO write code
-		
-	}
+	public abstract void domainEffect();
 	
-	public void typeEffect(){
-		// TODO write code
-		
-	}
+	public abstract void typeEffect();
 	/** 
 	 * returns the life points of the creature
 	 * @return health
