@@ -19,9 +19,9 @@ public class GameBoard
 	 * @param fplayerboard
 	 * @param splayervoard
 	 */
-	public GameBoard(PlayerBoard fplayerboard , PlayerBoard splayervoard){
-		this.firstPlayerBoard=fplayerboard;
-		this.secondPlayerBoard=splayervoard;
+	public GameBoard(){
+		this.firstPlayerBoard= new PlayerBoard();
+		this.secondPlayerBoard= new PlayerBoard();
 	}
 
 	/**
