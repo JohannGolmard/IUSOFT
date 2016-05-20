@@ -35,11 +35,11 @@ public class Summoner extends Card {
 	 * @param playerDeck
 	 */
 	public Summoner(int hp, int souls, int res, int intel, Deck playerDeck){
-		this.setHealth(hp);
-		this.setSouls(souls);
-		this.setResistance(res);
-		this.setIntelligence(intel);
-		this.setPlayerDeck(playerDeck);
+		this.health=hp;
+		this.souls=souls;
+		this.resistance=res;
+		this.intelligence=intel;
+		this.playerDeck=playerDeck;
 	}
 	/**
 	 * represent an effect of the summoner .
@@ -64,12 +64,27 @@ public class Summoner extends Card {
 		//TODO write code
 	}
 	
+	public void summonMonster(){
+		
+	}
+	public void useSpell(){
+		
+	}
+	public void equipMonster(){
+		
+	}
+	public void attackWithMonster(){
+		
+	}
+	public void useTrapCard(){
+		
+	}
 	
 	/**
 	 * returns the player's life points
 	 */
 	public int getHealth() {
-		return health;
+		return this.health;
 	}
 	/**
 	 * set the player's life points
@@ -81,7 +96,7 @@ public class Summoner extends Card {
 	 * returns the player's soul points
 	 */
 	public int getSouls() {
-		return souls;
+		return this.souls;
 	}
 	/**
 	 * set the player's soul points
@@ -93,7 +108,7 @@ public class Summoner extends Card {
 	 * returns the player's resistance points
 	 */
 	public int getResistance() {
-		return resistance;
+		return this.resistance;
 	}
 	/**
 	 * set the player's resistance points
@@ -105,7 +120,7 @@ public class Summoner extends Card {
 	 * returns the player's intelligence points
 	 */
 	public int getIntelligence() {
-		return intelligence;
+		return this.intelligence;
 	}
 	/**
 	 * set the player's intelligence points
@@ -117,7 +132,7 @@ public class Summoner extends Card {
 	 * return the player's 
 	 */
 	public Deck getPlayerDeck() {
-		return playerDeck;
+		return this.playerDeck;
 	}
 
 	public void setPlayerDeck(Deck playerDeck) {

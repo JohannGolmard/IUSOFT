@@ -41,5 +41,11 @@ public class GameBoard
 		return secondPlayerBoard;
 	}
 
+	public boolean isFinish()
+	{
+		// TODO gérer la fin de partie
+		return false;
+	}
+
 	
 }
