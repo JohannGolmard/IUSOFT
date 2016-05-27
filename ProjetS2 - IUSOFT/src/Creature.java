@@ -1,5 +1,5 @@
 
-public abstract class Creature extends PlayCard{
+public abstract class Creature extends PlayableCard{
 	/**
 	 * create a creature card
 	 * @param soulCost

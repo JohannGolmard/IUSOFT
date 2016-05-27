@@ -1,5 +1,5 @@
 
-public class Power extends PlayCard{
+public class Power extends PlayableCard{
 	/**
 	 * constructor of a power card
 	 * @param soulCost
