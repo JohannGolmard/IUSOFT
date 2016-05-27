@@ -9,22 +9,30 @@ public class Summoner extends Card {
 	 * this attribute represents the life points of the player 
 	 */
 	private int health;
+	
 	/**
 	 * this attribute represents the soul points of the player. they are used to summon the creatures
 	 */
 	private int souls;
+	
 	/**
 	 * this attribute represents the resistance points of the player 
 	 */
 	private int resistance;
+	
 	/**
 	 * this attribute represents the intelligence points of the player 
 	 */
 	private int intelligence;
+	
+	private int sanity;
+	
 	/**
 	 * this attribute represents the deck of the player with all the cards in.
 	 */
 	private Deck playerDeck;
+	
+
 	
 	/**
 	 * this is the constructor of a player.
@@ -137,6 +145,12 @@ public class Summoner extends Card {
 
 	public void setPlayerDeck(Deck playerDeck) {
 		this.playerDeck = playerDeck;
+	}
+	public int getSanity() {
+		return sanity;
+	}
+	public void setSanity(int sanity) {
+		this.sanity = sanity;
 	}
 	
 	

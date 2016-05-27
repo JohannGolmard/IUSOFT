@@ -26,9 +26,7 @@ public abstract class PlayableCard extends Card {
 	 * if the card is a creature: give the choice between attack mode and defense mode and activate his effect
 	 * if the card is a spell activate the effect
 	 */
-	public void playACard(){
-		//TODO write code
-	}
+	
 	/**
 	 * generate a card to play
 	 * @param soulCost
@@ -36,7 +34,7 @@ public abstract class PlayableCard extends Card {
 	 * @param neededResistance
 	 * @param neededIntelligence
 	 */
-	public PlayableCard(int soulCost, int neededSanity, int neededResistance,
+	protected PlayableCard(int soulCost, int neededSanity, int neededResistance,
 			int neededIntelligence) {
 		super();
 		this.soulCost= soulCost;
@@ -67,6 +65,19 @@ public abstract class PlayableCard extends Card {
 	}
 	public void setNeededIntelligence(int neededIntelligence) {
 		this.neededIntelligence = neededIntelligence;
+	}
+	
+	public void playACard(Summoner player){
+		if(this.soulCost>player.getSouls()|| this.neededSanity>player.getSanity()||this.neededResistance>player.getResistance()|| this.neededIntelligence>player.getIntelligence()){
+			System.out.println("Conditions non remplies");
+		}
+		else {
+			player.setSouls(player.getSouls()-soulCost);
+			player.setSanity(player.getSanity()-neededSanity);
+			player.setResistance(player.getResistance()-neededResistance);
+			player.setIntelligence(player.getIntelligence()-neededIntelligence);
+			
+		}
 	}
 
 }
