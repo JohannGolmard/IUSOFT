@@ -1,6 +1,6 @@
 /**
  * represents a playable card and the conditions to play this card. 
- * @author golmardj
+ * @author pintrant
  *
  */
 //TODO complete the comment
@@ -67,19 +67,19 @@ public abstract class PlayableCard extends Card {
 		this.neededIntelligence = neededIntelligence;
 	}
 	
-	public void playACard(Summoner player, PlayerBoard place){
-		if(this.soulCost>player.getSouls()|| this.neededSanity>player.getSanity()||this.neededResistance>player.getResistance()|| this.neededIntelligence>player.getIntelligence()){
-			System.out.println("Conditions non remplies");
-		}
-		else {
-			player.setSouls(player.getSouls()-soulCost);
-			player.setSanity(player.getSanity()-neededSanity);
-			player.setResistance(player.getResistance()-neededResistance);
-			player.setIntelligence(player.getIntelligence()-neededIntelligence);
-			//place.getBoard() = this;
-			}
+	public void playACard(PlayerBoard place,int row, int column){
 		
-			}
-	}
+		place.placeCard(row,column,this);
+		//TODO add checkEffect 
+		/*if(this.checkEffect()){
+			effect()
+			};*/			
+		};
+			
+				
+}
+		
+
+	
 
 
