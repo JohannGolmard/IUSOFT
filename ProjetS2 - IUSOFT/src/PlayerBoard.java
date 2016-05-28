@@ -1,37 +1,47 @@
 /**
  * This class represents the board of one player. This board is fill with card.
- * @author golmardj
+ * @author IUSOFT (initialized by golmard / filled by george)
  *
  */
 public class PlayerBoard
 {
+	public static final int BOARD_ROW_LENGHT = 5;
+	public static final int BOARD_COL_LENGHT = 3;
+	
 	/**
 	 * The board of the player represented by a grid of card.
 	 */
-	private PlayableCard[][] board;
-	//TODO adapter à la classe PlayCard
-	private Summoner summoner;
+	private final PlayableCard[][] board;
 	
 	/**
 	 * 
 	 */
 	public PlayerBoard(){
-		this.board=new PlayableCard[8][8];
-		//TODO revoir le constructeur et voir pour le Summoner
-		//this.summoner= new Summoner();
+		this.board=new PlayableCard[BOARD_COL_LENGHT][BOARD_ROW_LENGHT];
 	}
+	
 	/**
 	 * Return the board of the player.
 	 * @return board
 	 */
-	public  PlayableCard[][] getBoard(){
-	//TODO adapter à la classe PlayableCard
+	/*public PlayableCard[][] getBoard(){
 		return this.board;
+	}*/
+	
+	
+	public boolean isEmpty(int row, int col){
+		if (board[row][col] == null){
+			return true;
+		}
+		return false;
 	}
-	public Summoner getSummoner()
-	{
-		// TODO Auto-generated method stub
-		return this.summoner;
+	
+	public void placeCard(int row, int col, PlayableCard card){
+		this.board[row][col]=card;
+	}
+	
+	public void destroyCard(int row, int col){
+		this.board[row][col]=null;
 	}
 	
 }
