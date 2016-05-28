@@ -67,9 +67,9 @@ public abstract class PlayableCard extends Card {
 		this.neededIntelligence = neededIntelligence;
 	}
 	
-	public void playACard(PlayerBoard place,int row, int column){
+	public void playACard(PlayerBoard board,int row, int column){
 		
-		place.placeCard(row,column,this);
+		board.placeCard(row,column,this);
 		//TODO add checkEffect 
 		/*if(this.checkEffect()){
 			effect()
