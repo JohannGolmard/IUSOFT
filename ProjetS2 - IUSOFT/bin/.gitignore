@@ -15,10 +15,9 @@
 /Infantry.class
 /Magic.class
 /Martial.class
-/PlayCard.class
+/PlayableCard.class
 /PlayerBoard.class
 /Power.class
 /Summoner.class
 /Support.class
 /Wind.class
-/PlayableCard.class

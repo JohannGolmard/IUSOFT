@@ -24,8 +24,8 @@ public class PlayerBoard
 	 * Return the board of the player.
 	 * @return board
 	 */
-	public PlayableCard[][] getBoard(){
-	//TODO adapter à la classe PlayCard
+	public  PlayableCard[][] getBoard(){
+	//TODO adapter à la classe PlayableCard
 		return this.board;
 	}
 	public Summoner getSummoner()

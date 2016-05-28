@@ -29,9 +29,13 @@ public abstract class Creature extends PlayableCard{
 	 * the attack of the creature
 	 */
 	private int attack;
-	
+	/**
+	 * represent the effect of the domain of the creature
+	 */
 	public abstract void domainEffect();
-	
+	/**
+	 * represent the type of the creature's effect
+	 */
 	public abstract void typeEffect();
 	/** 
 	 * returns the life points of the creature
