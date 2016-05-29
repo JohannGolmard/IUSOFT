@@ -4,7 +4,13 @@ public class Bone extends Demonic{
 			int neededIntelligence, int health, int attack, int defense) {
 		super(soulCost, neededSanity, neededResistance, neededIntelligence, health,
 				attack, defense);
-		// TODO Auto-generated constructor stub
+
+	}
+
+	@Override
+	public boolean checkEffect() {
+
+		return false;
 	}
 
 }

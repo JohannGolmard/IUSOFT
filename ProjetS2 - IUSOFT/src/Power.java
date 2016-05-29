@@ -32,4 +32,9 @@ public class Power extends PlayableCard{
 	public void setType(String type) {
 		this.type = type;
 	}
+	@Override
+	public boolean checkEffect() {
+	
+		return false;
+	}
 }

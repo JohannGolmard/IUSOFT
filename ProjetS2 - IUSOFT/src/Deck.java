@@ -6,17 +6,32 @@ public class Deck {
 	public Deck(List<PlayableCard> d){
 		this.deckList=d;
 	}
-	public void draw(){
-		//TODO revoir le type de la méthode
-		//TODO write code
+	/**
+	 * Draw the first card of the deckList
+	 * @return
+	 */
+	public PlayableCard draw(){
+		PlayableCard c;
+		c=this.deckList.get(0);
+		this.deckList.remove(0);
+		return c;
 	}
 	public void shuffle(){
-		//TODO revoir le type de la méthode
-		//TODO write code
+		
+		//...
 	}
-	public void search(){
-		//TODO revoir le type de la méthode
-		//TODO write code
+	/**
+	 * Search the card c into the deckList
+	 * @param c
+	 * @return
+	 */
+	public PlayableCard search(PlayableCard c){	
+			PlayableCard card;
+			card=this.deckList.get(this.deckList.indexOf(c));
+			this.deckList.remove(this.deckList.indexOf(c));
+			return card;
+		
+	
 	}
 
 }

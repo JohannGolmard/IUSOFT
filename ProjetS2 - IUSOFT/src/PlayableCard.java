@@ -3,7 +3,7 @@
  * @author pintrant
  *
  */
-//TODO complete the comment
+
 public abstract class PlayableCard extends Card {
 	/**
 	 * Represents the cost in soul point of the card

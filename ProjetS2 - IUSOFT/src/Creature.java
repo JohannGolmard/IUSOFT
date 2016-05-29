@@ -10,7 +10,7 @@ public abstract class Creature extends PlayableCard{
 	 * @param attack
 	 * @param defense
 	 */
-	public Creature(int soulCost, int neededSanity, int neededResistance,
+	protected Creature(int soulCost, int neededSanity, int neededResistance,
 			int neededIntelligence, int health, int attack, int defense) {
 		super(soulCost, neededSanity, neededResistance, neededIntelligence);
 		this.health= health;

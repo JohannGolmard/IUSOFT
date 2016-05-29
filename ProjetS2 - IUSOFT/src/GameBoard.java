@@ -20,8 +20,8 @@ public class GameBoard
 	 * @param splayervoard
 	 */
 	public GameBoard(){
-		this.firstPlayerBoard= new PlayerBoard();
-		this.secondPlayerBoard= new PlayerBoard();
+		this.firstPlayerBoard= this.firstPlayerBoard.getSummoner().getPlayerBoard();
+		this.secondPlayerBoard= this.secondPlayerBoard.getSummoner().getPlayerBoard();
 	}
 
 	/**
@@ -41,11 +41,8 @@ public class GameBoard
 		return secondPlayerBoard;
 	}
 
-	public boolean isFinish()
-	{
-		// TODO gérer la fin de partie
-		return false;
-	}
+
+
 
 	
 }

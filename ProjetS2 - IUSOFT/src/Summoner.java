@@ -1,9 +1,11 @@
+import java.util.Random;
+
 /***
  * this class represent the summoner's card
  * @author pintrant
  *
  */
-//TODO complete the comments of this class
+
 public class Summoner extends Card {
 	/**
 	 * this attribute represents the life points of the player 
@@ -31,7 +33,14 @@ public class Summoner extends Card {
 	 * this attribute represents the deck of the player with all the cards in.
 	 */
 	private Deck playerDeck;
+	/**
+	 * this attribute represents the hand of the player
+	 */
+	private PlayableCard[] hand;
 	
+	private PlayerBoard board;
+	
+	private boolean spellUsed = false;
 
 	
 	/**
@@ -48,44 +57,90 @@ public class Summoner extends Card {
 		this.resistance=res;
 		this.intelligence=intel;
 		this.playerDeck=playerDeck;
+		this.hand= new PlayableCard[8];
+		this.board=new PlayerBoard(this);
+		for (int i=0;i<5;i++)
+			this.hand[i]=this.playerDeck.draw();
+		
 	}
 	/**
 	 * represent an effect of the summoner .
 	 */
-	public void firstEffect(){
-		//TODO write code
+	public void effect(){
+		//...
 	}
-	/**
-	 * represent an other effect of the summoner card.
-	 */
-	public void secondEffect(){
-		//TODO write code
-	}
-	/**
-	 * 
-	 */
+
 	public void meditate(){
-		//TODO write code
+		//...
 	}
 	
-	public void exercise(String skill){
-		//TODO write code
+	/**
+	 * Summon a monster from the summoner's hand to his board
+	 * @param c
+	 */
+	public void summonMonster(PlayableCard c){
+		if(this.souls<c.getSoulCost() || this.intelligence<c.getNeededIntelligence() || this.resistance<c.getNeededResistance() || this.sanity<c.getNeededSanity()){
+			System.out.println("Prérequis non respecté");
+		}
+		else{
+			for(int i=0;i<5;i++){
+				for(int j=0;j<3;j++){
+					if(this.board.isEmpty(i, j)){
+						this.board.placeCard(i, j, c);
+						for(int k=0;k<8;k++){
+							if(this.hand[k] == c)
+								this.hand[k] = null;
+							k++;
+						}
+					}
+					j++;
+				}
+				i++;
+			}
+		}
+			
 	}
-	
-	public void summonMonster(){
-		
-	}
+	/**
+	 * Use a card spell from the summoner's hand
+	 */
 	public void useSpell(){
-		
+		if(this.spellUsed==false){
+			//...
+			
+			this.spellUsed = true;
+		}
 	}
-	public void equipMonster(){
-		
+	/**
+	 * equip the monster from the summoner's board with a equipment from the summoner's hand
+	 * @param playableCard
+	 * @param playableCard2
+	 */
+	public void equipMonster(PlayableCard playableCard,PlayableCard playableCard2){
+		((Creature) playableCard).setAttack(((Creature) playableCard).getAttack()+((Creature) playableCard2).getAttack());
+		((Creature) playableCard).setDefense(((Creature) playableCard).getDefense()+((Creature) playableCard2).getDefense());
+		((Creature) playableCard).setHealth(((Creature) playableCard).getHealth()+((Creature) playableCard2).getHealth());
+		for(int i=0;i<8;i++){
+			if(this.hand[i]==playableCard2)
+				this.hand[i]=null;
+			i++;
+		}
 	}
-	public void attackWithMonster(){
-		
+	/**
+	 * Attack the enemy's monster with a monster from the summoner's board
+	 * @param playableCard
+	 * @param playableCard2
+	 */
+	public void attackWithMonster(PlayableCard playableCard,PlayableCard playableCard2){
+		if(((Creature) playableCard).getDefense() == 0)
+			((Creature) playableCard).setHealth(((Creature) playableCard).getHealth()-((Creature) playableCard2).getAttack());		
+		else
+			((Creature) playableCard).setDefense(((Creature) playableCard).getDefense()-((Creature) playableCard2).getAttack());
 	}
+	/**
+	 * Use a trap card from the summoner's hand
+	 */
 	public void useTrapCard(){
-		
+		//...
 	}
 	
 	/**
@@ -137,7 +192,7 @@ public class Summoner extends Card {
 		this.intelligence = intelligence;
 	}
 	/**
-	 * return the player's 
+	 * return the player's deck
 	 */
 	public Deck getPlayerDeck() {
 		return this.playerDeck;
@@ -152,6 +207,29 @@ public class Summoner extends Card {
 	public void setSanity(int sanity) {
 		this.sanity = sanity;
 	}
+	public PlayableCard[] getHand(){
+		return this.hand;
+	}
+	@Override
+	public boolean checkEffect() {
+		//...
+		return false;
+	}
+	/**
+	 * Return the board of the summoner
+	 * @return PlayerBoard
+	 */
+	public PlayerBoard getPlayerBoard() {		
+		return this.board;
+	}
+	/**
+	 * Return a random card from the hand of the summoner
+	 * @return a card
+	 */
+	public PlayableCard getRandomCard(){
+		Random rng = new Random();
+		return this.hand[rng.nextInt(this.hand.length)];
+	}
 	
-	
+
 }
