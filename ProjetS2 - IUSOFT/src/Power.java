@@ -9,8 +9,8 @@ public class Power extends PlayableCard{
 	 * @param type
 	 */
 	public Power(int soulCost, int neededSanity, int neededResistance,
-			int neededIntelligence, String type) {
-		super(soulCost, neededSanity, neededResistance, neededIntelligence);
+			int neededIntelligence, String trigger, String type) {
+		super(soulCost, neededSanity, neededResistance, neededIntelligence,trigger);
 		this.type=type;
 	}
 	/**

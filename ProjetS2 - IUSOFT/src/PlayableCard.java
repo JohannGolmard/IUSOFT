@@ -23,10 +23,9 @@ public abstract class PlayableCard extends Card {
 	private int neededIntelligence;
 	
 	/**
-	 * if the card is a creature: give the choice between attack mode and defense mode and activate his effect
-	 * if the card is a spell activate the effect
+	 * represents the trigger of the card
 	 */
-	
+	private final String trigger;
 	/**
 	 * generate a card to play
 	 * @param soulCost
@@ -35,12 +34,13 @@ public abstract class PlayableCard extends Card {
 	 * @param neededIntelligence
 	 */
 	protected PlayableCard(int soulCost, int neededSanity, int neededResistance,
-			int neededIntelligence) {
+			int neededIntelligence,String trigger) {
 		super();
 		this.soulCost= soulCost;
 		this.neededSanity=neededSanity;
 		this.neededResistance=neededResistance;
 		this.neededIntelligence=neededIntelligence;
+		this.trigger=trigger;
 	}
 	public int getSoulCost() {
 		return soulCost;
@@ -67,16 +67,16 @@ public abstract class PlayableCard extends Card {
 		this.neededIntelligence = neededIntelligence;
 	}
 	
-	public void playACard(PlayerBoard board,int row, int column){
-		
-		board.placeCard(row,column,this);
-		//TODO add checkEffect 
-		/*if(this.checkEffect()){
-			effect()
-			};*/			
-		};
+	public String getTrigger() {
+		return trigger;
+	}
 			
-				
+	public void checkEffect(String effect){
+		if(effect==this.trigger){
+			this.effect();
+		}
+	}
+	
 }
 		
 
