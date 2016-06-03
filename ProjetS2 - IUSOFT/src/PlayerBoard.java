@@ -22,8 +22,6 @@ public class PlayerBoard
 	 */
 	private PlayableCard[][] board;
 	
-	private Summoner sum;
-	
 	public PlayerBoard(){
 		this.board=new PlayableCard[BOARD_ROW_LENGTH][BOARD_COL_LENGTH];
 	}
