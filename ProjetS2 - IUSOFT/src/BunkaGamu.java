@@ -139,12 +139,15 @@ public class BunkaGamu
 		return false;
 	}
 
+
 	/**
 	 * Use to generate a random choice for player
 	 *
 	 */
 	enum Choice{
 	takeCard,
+	useSpell,
+	summonMonster,
 	equipMonster,
 	attackWithMonster;
 	

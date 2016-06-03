@@ -1,5 +1,8 @@
 
 public class Power extends PlayableCard{
+	
+	private final String category;
+	
 	/**
 	 * constructor of a power card
 	 * @param soulCost
@@ -8,27 +11,10 @@ public class Power extends PlayableCard{
 	 * @param neededIntelligence
 	 * @param type
 	 */
-	public Power(int soulCost, int neededSanity, int neededResistance, int neededIntelligence, String trigger, String type) {
+	public Power(int soulCost, int neededSanity, int neededResistance, int neededIntelligence, String trigger, String type, String category) {
 		super(soulCost, neededSanity, neededResistance, neededIntelligence,trigger, type);
-		this.type=type;
+		this.category=category;
 	}
-	/**
-	 * the type of the power
-	 */
-	private String type;
-
-	/**
-	 * returns the type of the power
-	 * @return type
-	 */
-	public String getType() {
-		return type;
-	}
-	/**
-	 * set the type of the power
-	 * @param type
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
+	
+	
 }

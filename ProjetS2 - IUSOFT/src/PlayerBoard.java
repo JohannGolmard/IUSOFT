@@ -21,9 +21,11 @@ public class PlayerBoard
 	 * The board of the player represented by a grid of card.
 	 */
 	private PlayableCard[][] board;
+
 	/**
 	 * Create a new Player Board with length initiate by constant.	
 	 */
+
 	public PlayerBoard(){
 		this.board=new PlayableCard[BOARD_ROW_LENGTH][BOARD_COL_LENGTH];
 	}
