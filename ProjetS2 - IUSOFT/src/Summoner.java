@@ -52,11 +52,12 @@ public class Summoner {
 	 * @param intel
 	 * @param playerDeck
 	 */
-	public Summoner(int hp, int souls, int res, int intel, Deck playerDeck){
+	public Summoner(int hp, int souls, int res, int intel,int sanity, Deck playerDeck){
 		this.health=hp;
 		this.souls=souls;
 		this.resistance=res;
 		this.intelligence=intel;
+		this.sanity=sanity;
 		this.playerDeck=playerDeck;
 		this.playerHand= new Hand();
 		this.board=new PlayerBoard();		
@@ -84,6 +85,10 @@ public class Summoner {
 	 */
 	public void takeCard(PlayableCard card){
 		if(this.souls<card.getSoulCost() || this.intelligence<card.getNeededIntelligence() || this.resistance<card.getNeededResistance() || this.sanity<card.getNeededSanity()){
+			System.out.println(this.souls);
+			System.out.println(this.intelligence);
+			System.out.println(this.resistance);
+			System.out.println(this.sanity);
 			System.out.println("Prérequis non respectés");
 		}	
 		else{
@@ -92,6 +97,7 @@ public class Summoner {
 			}
 			else{
 				this.board.placeCard(card);
+				System.out.println("Carte placé");
 			}
 		}
 	}
@@ -173,7 +179,18 @@ public class Summoner {
 	public PlayerBoard getBoard(){
 		return this.board;
 	}
-
+	public Hand getHand(){
+		return this.playerHand;
+	}
+	public Deck getPlayerDeck(){
+		return this.playerDeck;
+	}
+	
+	
+	public void attackWithMonster(PlayableCard playableCard,PlayableCard playableCard2){		 		
+		((Creature) playableCard).setHealth(((Creature) playableCard).getHealth()-((Creature) playableCard2).getAttack());		
+		//non prise en compte de la défense
+	}
 	
 	/**
 	 * Return a random card from the hand of the summoner

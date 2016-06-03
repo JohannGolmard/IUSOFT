@@ -27,13 +27,17 @@ public abstract class PlayableCard {
 	 */
 	private final String trigger;
 	/**
+	 * represents the type of the card
+	 */
+	private final String type;
+	
+	/**
 	 * generate a card to play
 	 * @param soulCost
 	 * @param neededSanity
 	 * @param neededResistance
 	 * @param neededIntelligence
 	 */
-	private final String type;
 	
 	protected PlayableCard(int soulCost, int neededSanity, int neededResistance,
 			int neededIntelligence,String trigger, String type) {

@@ -3,9 +3,9 @@
 /Bone.class
 /BunkaGamu$Choice.class
 /BunkaGamu.class
-/Card.class
 /Cavalry.class
 /Chaos.class
+/Commander.class
 /Creature.class
 /Darkness.class
 /Deck.class
@@ -13,6 +13,7 @@
 /Earth.class
 /Fire.class
 /GameBoard.class
+/Hand.class
 /Infantry.class
 /Magic.class
 /Martial.class
@@ -20,8 +21,5 @@
 /PlayerBoard.class
 /Power.class
 /Summoner.class
-/Support.class
-/Wind.class
-/Hand.class
 /Water.class
-/Commander.class
+/Wind.class

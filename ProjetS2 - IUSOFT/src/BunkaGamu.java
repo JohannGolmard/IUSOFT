@@ -30,10 +30,8 @@ public class BunkaGamu
 	 *	 The player who start receive one card from is deck 
 	 * 	 Then the player choose is action :
 	 *  	-case The summoner summon a creature while the summoner has the specified condition to invoke it 
-	 *  	-case Use a spell from his hand
 	 * 		-case Equip one of his creature on his board with a equipment from his hand
 	 * 		-case Attack , the player use one of his creature to Attack the enemy
-	 *  	-case Play a trap card , the summoner put a trap card on his board, which can't be activate on the same turn of the summoner who play it.
 	 *  	by default the only choice possible is to finish his turn
 	 *  
 	 * if the player choose to finish his turn
@@ -45,98 +43,110 @@ public class BunkaGamu
 	 *  the winner is the first summoner to down the summoner enemy at 0 life point
 	 */
 	public void play(){
+
 		while(!this.isFinish()){
-			this.sum1.getHand()[this.sum1.getHand().length]=this.sum1.getPlayerDeck().draw();
+			if(!this.sum1.getPlayerDeck().isEmpty())
+				this.sum1.getHand().addCard(this.sum1.getPlayerDeck().draw());
 			
 			switch(Choice.getRandomChoice())
 			{
 
-			case summonMonster:
-				this.sum1.summonMonster(sum1.getRandomCard());
-				break;
-			case useSpell:
-				this.sum1.useSpell();
+			case takeCard:
+				this.sum1.takeCard((sum1.getRandomCard()));
 				break;
 			case equipMonster:
-				this.sum1.equipMonster(sum1.getPlayerBoard().getRandomCard(),sum1.getRandomCard());
+				System.out.println("Monstre équipé");
 				break;
 			case attackWithMonster:
-				PlayableCard v=this.sum2.getPlayerBoard().getRandomCard();
-				PlayableCard a=this.sum1.getPlayerBoard().getRandomCard();
-				this.sum1.attackWithMonster(v,a);
-				if(((Creature) v).getHealth()==0){
-					for(int i=0;i<5;i++){
-						for(int j=0;j<3;j++){
-							if(this.board.getSecondPlayerBoard().checkCard(i, j, v))
-								this.board.getSecondPlayerBoard().destroyCard(i, j);
-							j++;
-						}						
-						i++;
+				PlayableCard a=this.sum1.getBoard().getRandomCard();
+				Random rng = new Random();
+				int c = rng.nextInt(2);
+				if(c==0){
+					PlayableCard v=this.sum2.getBoard().getRandomCard();
+					this.sum1.attackWithMonster(v,a);
+					if(((Creature) v).getHealth()==0){
+						for(int i=0;i<5;i++){
+							for(int j=0;j<3;j++){
+								if(this.sum2.getBoard().checkCard(i, j, v))
+									this.sum2.getBoard().destroyCard(i, j);
+								j++;
+							}						
+							i++;
+						}
 					}
 				}
+				
+				if(c==1)
+					this.sum2.setHealth(this.sum2.getHealth()-((Creature) a).getAttack());
+				
 					
 				break;
-			case useTrapCard:
-				this.sum1.useTrapCard();
-				break;
 			default:
-				System.out.println("\nFin du tour\n");
+				System.out.println("\nFin du tour du joueur 1\n");
 			}
 			
-			this.sum2.getHand()[this.sum2.getHand().length]=this.sum2.getPlayerDeck().draw();
+			if(!this.sum1.getPlayerDeck().isEmpty())			
+				this.sum2.getHand().addCard(this.sum1.getPlayerDeck().draw());
 			
 			switch(Choice.getRandomChoice())
 			{
-			case summonMonster:
-				this.sum1.summonMonster(sum2.getRandomCard());
-				break;
-			case useSpell:
-				this.sum1.useSpell();
+			case takeCard:
+				this.sum1.takeCard((sum2.getRandomCard()));
 				break;
 			case equipMonster:
-				this.sum1.equipMonster(sum2.getPlayerBoard().getRandomCard(),sum2.getRandomCard());
+				System.out.println("Monstre équipé");
 				break;
 			case attackWithMonster:
-				PlayableCard a=this.sum2.getPlayerBoard().getRandomCard();
-				PlayableCard v=this.sum1.getPlayerBoard().getRandomCard();
-				this.sum1.attackWithMonster(v,a);
-				if(((Creature) v).getHealth()==0){
-					for(int i=0;i<5;i++){
-						for(int j=0;j<3;j++){
-							if(this.board.getFirstPlayerBoard().checkCard(i, j, v))
-								this.board.getFirstPlayerBoard().destroyCard(i, j);
-							j++;
-						}						
-						i++;
+				PlayableCard a=this.sum2.getBoard().getRandomCard();
+				Random rng = new Random();
+				int c = rng.nextInt(2);
+				if(c==0){
+					PlayableCard v=this.sum1.getBoard().getRandomCard();
+					this.sum1.attackWithMonster(v,a);
+					if(((Creature) v).getHealth()==0){
+						for(int i=0;i<5;i++){
+							for(int j=0;j<3;j++){
+								if(this.sum1.getBoard().checkCard(i, j, v))
+									this.sum1.getBoard().destroyCard(i, j);
+								j++;
+							}						
+							i++;
+						}
 					}
 				}
-				break;
-			case useTrapCard:
-				this.sum1.useTrapCard();
+				if(c==1)
+					this.sum1.setHealth(this.sum1.getHealth()-((Creature)a).getAttack());
 				break;
 			default:
-				System.out.println("\nFin du tour\n");
+				System.out.println("\nFin du tour du joueur 2\n");
 			}		
 			
-			
+		System.out.println("Joueur 1 :"+this.sum1.getHealth());
+		System.out.println("Joueur 2 :"+this.sum2.getHealth());
 		}
 	}
-	
+	/**
+	 * check if the game is finish
+	 * @return boolean
+	 */
 	public boolean isFinish(){
-		if(this.sum1.getHealth() == 0){
+		if(this.sum1.getHealth() <= 0){
 			System.out.println("Le joueur 2 a gagné");
 			return true;}
-		if(this.sum2.getHealth() == 0){
+		if(this.sum2.getHealth() <= 0){
 			System.out.println("Le joueur 1 a gagné");
 			return true;}
 		return false;
 	}
-enum Choice{
-	useSpell,
-	summonMonster,
+
+	/**
+	 * Use to generate a random choice for player
+	 *
+	 */
+	enum Choice{
+	takeCard,
 	equipMonster,
-	attackWithMonster,
-	useTrapCard;
+	attackWithMonster;
 	
 	private static final Choice[] VALUES = values();
 	private static final int SIZE = VALUES.length;
@@ -146,4 +156,5 @@ enum Choice{
 		return VALUES[RANDOM.nextInt(SIZE)];
 	}
 	}
+
 }

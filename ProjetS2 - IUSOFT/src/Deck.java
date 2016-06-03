@@ -11,6 +11,10 @@ public class Deck {
 		this.deckName = name;
 		this.deck = new ArrayList<PlayableCard>();
 	}
+	public Deck(String name,ArrayList<PlayableCard> array){
+		this.deckName=name;
+		this.deck=array;
+	}
 	
 	
 	/**
@@ -32,6 +36,9 @@ public class Deck {
 		}
 		
 		this.deck = shuffledDeck;
+	}
+	public boolean isEmpty(){
+		return(this.deck.isEmpty());
 	}
 	
 	

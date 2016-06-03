@@ -23,6 +23,6 @@ public class GameBoard
 		this.firstPlayerBoard= player1.getBoard();
 		this.secondPlayerBoard= player2.getBoard();
 	}
-	
+
 	
 }

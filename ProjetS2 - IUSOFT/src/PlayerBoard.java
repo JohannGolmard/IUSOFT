@@ -21,9 +21,9 @@ public class PlayerBoard
 	 * The board of the player represented by a grid of card.
 	 */
 	private PlayableCard[][] board;
-	
-	private Summoner sum;
-	
+	/**
+	 * Create a new Player Board with length initiate by constant.	
+	 */
 	public PlayerBoard(){
 		this.board=new PlayableCard[BOARD_ROW_LENGTH][BOARD_COL_LENGTH];
 	}
@@ -70,7 +70,21 @@ public class PlayerBoard
 	public PlayableCard getRandomCard(){
 		Random rng = new Random();
 		Random rnj = new Random();
-		return this.board[rng.nextInt(this.board.length)][rnj.nextInt(this.board.length)];
+		int i=rng.nextInt(this.board.length+1);
+		int j=rnj.nextInt(this.board.length+1);
+		return this.board[i][j];
+		
+	}
+	/**
+	 * Check if the card is the same
+	 * @param row
+	 * @param col
+	 * @param card
+	 * @return
+	 */
+	
+	public boolean checkCard(int row,int col,PlayableCard card){
+		return (this.board[row][col]==card);
 	}
 	
 	
