@@ -131,7 +131,8 @@ public class BunkaGamu
 			return true;}
 		return false;
 	}
-enum Choice{
+
+	enum Choice{
 	useSpell,
 	summonMonster,
 	equipMonster,

@@ -24,5 +24,4 @@ public class GameBoard
 		this.secondPlayerBoard= player2.getBoard();
 	}
 	
-	
 }
