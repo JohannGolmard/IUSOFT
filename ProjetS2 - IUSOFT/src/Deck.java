@@ -1,37 +1,47 @@
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Deck {
-	private List<PlayableCard> deckList;
 	
-	public Deck(List<PlayableCard> d){
-		this.deckList=d;
+	private final String deckName;
+	private ArrayList<PlayableCard> deck;
+	
+	
+	public Deck(String name){
+		this.deckName = name;
+		this.deck = new ArrayList<PlayableCard>();
 	}
+	
+	
 	/**
 	 * Draw the first card of the deckList
 	 * @return
 	 */
 	public PlayableCard draw(){
-		PlayableCard c;
-		c=this.deckList.get(0);
-		this.deckList.remove(0);
-		return c;
+		return this.deck.remove(0);
 	}
+	
+	
 	public void shuffle(){
 		
-		//...
+		Random rnd = new Random();
+		ArrayList<PlayableCard> shuffledDeck = new ArrayList<PlayableCard>();
+		
+		for (int index=0; index<deck.size(); index++){
+			shuffledDeck.add(this.deck.remove(rnd.nextInt(this.deck.size())));
+		}
+		
+		this.deck = shuffledDeck;
 	}
+	
+	
 	/**
-	 * Search the card c into the deckList
-	 * @param c
+	 * Search the card card into the deck
+	 * @param card
 	 * @return
 	 */
-	public PlayableCard search(PlayableCard c){	
-			PlayableCard card;
-			card=this.deckList.get(this.deckList.indexOf(c));
-			this.deckList.remove(this.deckList.indexOf(c));
-			return card;
-		
-	
+	public PlayableCard search(PlayableCard card){	
+		return this.deck.remove(this.deck.indexOf(card));
 	}
 
 }

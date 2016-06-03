@@ -1,6 +1,7 @@
 /Archery.class
 /Blood.class
 /Bone.class
+/BunkaGamu$Choice.class
 /BunkaGamu.class
 /Card.class
 /Cavalry.class
@@ -21,5 +22,4 @@
 /Summoner.class
 /Support.class
 /Wind.class
-/BunkaGamu$Choice.class
-/Summoner$Choice.class
+/Hand.class
