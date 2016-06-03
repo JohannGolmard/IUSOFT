@@ -4,7 +4,7 @@
  *
  */
 
-public abstract class PlayableCard extends Card {
+public abstract class PlayableCard {
 	/**
 	 * Represents the cost in soul point of the card
 	 */
@@ -33,14 +33,17 @@ public abstract class PlayableCard extends Card {
 	 * @param neededResistance
 	 * @param neededIntelligence
 	 */
+	private final String type;
+	
 	protected PlayableCard(int soulCost, int neededSanity, int neededResistance,
-			int neededIntelligence,String trigger) {
+			int neededIntelligence,String trigger, String type) {
 		super();
 		this.soulCost= soulCost;
 		this.neededSanity=neededSanity;
 		this.neededResistance=neededResistance;
 		this.neededIntelligence=neededIntelligence;
 		this.trigger=trigger;
+		this.type=type;
 	}
 	public int getSoulCost() {
 		return soulCost;
@@ -66,15 +69,22 @@ public abstract class PlayableCard extends Card {
 	public void setNeededIntelligence(int neededIntelligence) {
 		this.neededIntelligence = neededIntelligence;
 	}
+	public String getType(){
+		return this.type;
+	}
+	
 	
 	public String getTrigger() {
-		return trigger;
+		return this.trigger;
 	}
 			
 	public void checkEffect(String effect){
 		if(effect==this.trigger){
 			this.effect();
 		}
+	}
+	
+	public void effect(){
 	}
 	
 }

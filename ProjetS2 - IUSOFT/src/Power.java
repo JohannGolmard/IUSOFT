@@ -8,9 +8,8 @@ public class Power extends PlayableCard{
 	 * @param neededIntelligence
 	 * @param type
 	 */
-	public Power(int soulCost, int neededSanity, int neededResistance,
-			int neededIntelligence, String trigger, String type) {
-		super(soulCost, neededSanity, neededResistance, neededIntelligence,trigger);
+	public Power(int soulCost, int neededSanity, int neededResistance, int neededIntelligence, String trigger, String type) {
+		super(soulCost, neededSanity, neededResistance, neededIntelligence,trigger, type);
 		this.type=type;
 	}
 	/**
@@ -31,10 +30,5 @@ public class Power extends PlayableCard{
 	 */
 	public void setType(String type) {
 		this.type = type;
-	}
-	@Override
-	public boolean checkEffect() {
-	
-		return false;
 	}
 }

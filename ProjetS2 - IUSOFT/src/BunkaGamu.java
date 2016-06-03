@@ -22,7 +22,7 @@ public class BunkaGamu
 		
 		this.sum1=s1;
 		this.sum2=s2;
-		this.board = new GameBoard();
+		this.board = new GameBoard(s1, s2);
 	}
 
 	/**

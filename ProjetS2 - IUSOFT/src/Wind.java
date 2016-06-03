@@ -1,17 +1,10 @@
 public class Wind extends Magic{
 
-	public Wind(int soulCost, int neededSanity, int neededResistance,
-			int neededIntelligence, int health, int attack, int defense) {
-		super(soulCost, neededSanity, neededResistance, neededIntelligence, health,
-				attack, defense);
-
+	public Wind(int soulCost, int neededSanity, int neededResistance, int neededIntelligence, int health, int attack, int defense, String trigger, String type) {
+		super(soulCost, neededSanity, neededResistance, neededIntelligence, health, attack, defense, trigger, type);
 	}
 
-	@Override
-	public boolean checkEffect() {
-
-		return false;
+	public void typeEffect(){
+		//TODO
 	}
-	
-	
 }

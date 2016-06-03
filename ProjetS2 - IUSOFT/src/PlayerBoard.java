@@ -47,8 +47,8 @@ public class PlayerBoard
 	 * @param card to place
 	 */
 	public void placeCard(PlayableCard card){
-		int row = /*ask the player for row*/;
-		int col = /*ask the player for column*/;
+		int row = 0 ;// TODO ask the player for row;
+		int col = 0 ;// TODO ask the player for column;
 		this.board[row][col]=card;
 	}
 	
@@ -77,8 +77,8 @@ public class PlayerBoard
 	public void checkBoard(String action){
 		for (int i=0; i<BOARD_COL_LENGTH; i++){
 			for (int j=0; j<BOARD_ROW_LENGTH; j++){
-				this.board[i][j].checkEffect();
+				this.board[i][j].checkEffect(action);
 			}
 		}
 	}
-	}
+}

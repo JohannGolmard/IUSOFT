@@ -19,30 +19,10 @@ public class GameBoard
 	 * @param fplayerboard
 	 * @param splayervoard
 	 */
-	public GameBoard(){
-		this.firstPlayerBoard= this.firstPlayerBoard.getSummoner().getPlayerBoard();
-		this.secondPlayerBoard= this.secondPlayerBoard.getSummoner().getPlayerBoard();
+	public GameBoard(Summoner player1, Summoner player2){
+		this.firstPlayerBoard= player1.getBoard();
+		this.secondPlayerBoard= player2.getBoard();
 	}
-
-	/**
-	 * Return the board of the first player
-	 * @return firstPlayerBoard
-	 */
-	public PlayerBoard getFirstPlayerBoard()
-	{
-		return firstPlayerBoard;
-	}
-	/**
-	 * Return the board of the second player
-	 * @return secondPlayerBoard
-	 */
-	public PlayerBoard getSecondPlayerBoard()
-	{
-		return secondPlayerBoard;
-	}
-
-
-
-
+	
 	
 }

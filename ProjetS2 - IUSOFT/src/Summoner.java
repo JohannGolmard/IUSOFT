@@ -2,7 +2,7 @@ import java.util.Random;
 
 /***
  * this class represent the summoner's card
- * @author pintrant
+ * @author IUSOFT (initialized be pintrant/completed by george)
  *
  */
 
@@ -67,6 +67,7 @@ public class Summoner {
 	 * represent an effect of the summoner .
 	 */
 	public void effect(){
+		//TODO
 		this.actionTaken = true;
 	}
 
@@ -161,12 +162,16 @@ public class Summoner {
 
 	
 	public int getSanity() {
-		return sanity;
+		return this.sanity;
 	}
 
 	
 	public void setSanity(int sanity) {
 		this.sanity = sanity;
+	}
+	
+	public PlayerBoard getBoard(){
+		return this.board;
 	}
 
 	
