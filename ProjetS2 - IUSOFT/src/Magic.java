@@ -1,10 +1,9 @@
-public abstract class Magic extends Creature {
+public class Magic extends Creature {
 	
-	protected Magic(int soulCost, int neededSanity, int neededResistance, int neededIntelligence, int health, int attack, int defense, String trigger, String type) {
-		super(soulCost, neededSanity, neededResistance, neededIntelligence, health,	attack, defense, trigger, type);
+	protected Magic(int soulCost, int health, int attack, String type) {
+		super(soulCost, health,	attack, type);
 	}
-
-	public void domainEffect() {
-		//TODO
+	public String toString(){
+		return "Carte Magique avec "+this.getSoulCost()+" points necéssaire, "+this.getAttack()+" Attaque et "+this.getHealth()+" points de vie";
 	}
 }

@@ -54,9 +54,6 @@ public class BunkaGamu
 			case takeCard:
 				this.sum1.takeCard((sum1.getRandomCard()));
 				break;
-			case equipMonster:
-				System.out.println("Monstre équipé");
-				break;
 			case attackWithMonster:
 				PlayableCard a=this.sum1.getBoard().getRandomCard();
 				Random rng = new Random();
@@ -66,11 +63,8 @@ public class BunkaGamu
 					this.sum1.attackWithMonster(v,a);
 					if(((Creature) v).getHealth()==0){
 						for(int i=0;i<5;i++){
-							for(int j=0;j<3;j++){
-								if(this.sum2.getBoard().checkCard(i, j, v))
-									this.sum2.getBoard().destroyCard(i, j);
-								j++;
-							}						
+							if(this.sum2.getBoard().checkCard(i, v))
+								this.sum2.getBoard().destroyCard(i);						
 							i++;
 						}
 					}
@@ -93,9 +87,6 @@ public class BunkaGamu
 			case takeCard:
 				this.sum1.takeCard((sum2.getRandomCard()));
 				break;
-			case equipMonster:
-				System.out.println("Monstre équipé");
-				break;
 			case attackWithMonster:
 				PlayableCard a=this.sum2.getBoard().getRandomCard();
 				Random rng = new Random();
@@ -105,11 +96,8 @@ public class BunkaGamu
 					this.sum1.attackWithMonster(v,a);
 					if(((Creature) v).getHealth()==0){
 						for(int i=0;i<5;i++){
-							for(int j=0;j<3;j++){
-								if(this.sum1.getBoard().checkCard(i, j, v))
-									this.sum1.getBoard().destroyCard(i, j);
-								j++;
-							}						
+							if(this.sum1.getBoard().checkCard(i, v))
+								this.sum1.getBoard().destroyCard(i);												
 							i++;
 						}
 					}
@@ -131,24 +119,20 @@ public class BunkaGamu
 	 */
 	public boolean isFinish(){
 		if(this.sum1.getHealth() <= 0){
-			System.out.println("Le joueur 2 a gagné");
+			System.out.println("Le joueur 2 a gagnï¿½");
 			return true;}
 		if(this.sum2.getHealth() <= 0){
-			System.out.println("Le joueur 1 a gagné");
+			System.out.println("Le joueur 1 a gagnï¿½");
 			return true;}
 		return false;
 	}
-
-
 	/**
 	 * Use to generate a random choice for player
 	 *
 	 */
 	enum Choice{
 	takeCard,
-	useSpell,
 	summonMonster,
-	equipMonster,
 	attackWithMonster;
 	
 	private static final Choice[] VALUES = values();

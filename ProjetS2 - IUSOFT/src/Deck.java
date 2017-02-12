@@ -16,7 +16,6 @@ public class Deck {
 		this.deck=array;
 	}
 	
-	
 	/**
 	 * Draw the first card of the deckList
 	 * @return

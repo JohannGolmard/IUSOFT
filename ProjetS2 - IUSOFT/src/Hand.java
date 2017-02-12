@@ -17,6 +17,9 @@ public class Hand {
 	public void addCard(PlayableCard card) {
 		this.hand.add(card);
 	}
+	public void removeCard(int index){
+		this.hand.remove(this.hand.get(index));
+	}
 	
 	public int size(){
 		return this.hand.size();
